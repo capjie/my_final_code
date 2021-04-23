@@ -1,0 +1,42 @@
+学习内容：
+jQuery：{
+    Ajax：{
+        
+    }
+}
+PHP:{
+    vscode中启用php调试：{
+        在PHPStudy打开Xdebug，并在
+        php.ini设置{
+            端口为9001
+            xdebug.remote_enable=1
+            xdebug.remote_autostart = 1
+            xdebug.profiler_enable=1
+        }
+        在VSCODE中设置{
+            点击文件->首选项->设置，
+            搜索php，点击setting.json
+            将PHP的路径写进去
+            启动调试lanuch.json，设置端口9001
+        }
+    }
+}
+BootStrap4：{
+
+}
+MYSQL:{
+    创建长文本数据，columnname TEXT
+}
+数据传输：{
+    1、将select标签中的内容传递到后台
+}
+
+目前，登陆注册可以正常使用，但是安全性和权限还需要进一步考虑，
+知识广场的页面已经可以正常使用（但是分页按钮的左右两个按钮还需要完善）
+发布页面可以正常使用，
+做题页面可以正常使用，
+
+项目广场还没有完成
+读取文档还没有完成
+上传和读取视频还没有完成
+上传和读取PDF还没有完成

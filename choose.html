@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>虚拟职场</title>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+    .flow-arrow {
+      font-size: 60px;
+      width: 180px;
+      height: 80px;
+      color: rgb(64, 164, 192);
+      text-align: center;
+    }
+
+    .flow-box {
+      width: 180px;
+      height: 80px;
+      text-align: center;
+      font-size: 15px;
+      border-radius: 10%;
+      line-height: 50px;
+      border: 1px solid black;
+    }
+
+    .btn-primary {
+      margin: 40px;
+      text-align: center;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- style="background-color: lightgray;" -->
+  <div class="container">
+    <!-- 展示导航栏，滑动门 -->
+    <div class="jumbotron jumbotron-fluid" style="background-color: lightgray;">
+      <div class="container">
+        <h1 class="display-3">欢迎来到虚拟职场!</h1>
+        <p class="lead">接下来您可以选择自己喜欢的职业，并初步了解该职业的发展路线。</p>
+        <hr class="my-4">
+        <p>确定选择的职业之后，只需要通过简单的测试就可以成为我们的一员了！</p>
+      </div>
+    </div>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-anfu-tab" data-toggle="pill" href="#pills-anfu" role="tab"
+          aria-controls="pills-anfu" aria-selected="true">安全服务</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-yanjiu-tab" data-toggle="pill" href="#pills-yanjiu" role="tab"
+          aria-controls="pills-yanjiu" aria-selected="false">安全研究</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-kaifa-tab" data-toggle="pill" href="#pills-kaifa" role="tab"
+          aria-controls="pills-kaifa" aria-selected="false">安全开发</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-anfu" role="tabpanel" aria-labelledby="pills-anfu-tab">
+        <div class="col-md-12">
+          <div class="col-md-3 flow-box">
+            <a href="#" data-toggle="tooltip" data-placement="right" title="需要掌握。。。">初级安全服务工程师</a>
+          </div>
+          <div class="col-md-2 flow-arrow">↓</div>
+          <div class="col-md-3 flow-box">
+            <a href="#" data-toggle="tooltip" data-placement="right" title="需要掌握。。。">中级安全服务工程师</a>
+          </div>
+          <div class="col-md-2 flow-arrow">↓</div>
+          <div class="col-md-3 flow-box">
+            <a href="#" data-toggle="tooltip" data-placement="right" title="需要掌握。。。">高级安全服务专家</a>
+          </div>
+        </div>
+        <!-- 确定按钮 -->
+        <button type="submit" class="btn btn-primary" id="anfu">开始测试</button>
+      </div>
+      <div class="tab-pane fade" id="pills-yanjiu" role="tabpanel" aria-labelledby="pills-yanjiu-tab">
+        <div class="col-md-3 flow-box">
+          <a href="#" data-toggle="tooltip" data-placement="right" title="需要掌握。。。">初级研究员</a>
+        </div>
+        <div class="col-md-2 flow-arrow">↓</div>
+        <div class="col-md-3 flow-box">
+          <a href="#" data-toggle="tooltip" data-placement="right" title="需要掌握。。。">中级安全研究工程师</a>
+        </div>
+        <div class="col-md-2 flow-arrow">↓</div>
+        <div class="col-md-3 flow-box">
+          <a href="#" data-toggle="tooltip" data-placement="right" title="需要掌握。。。">高级安全专家</a>
+        </div>
+        <button type="submit" class="btn btn-primary" id="yanjiu">开始测试</button>
+      </div>
+      <div class="tab-pane fade" id="pills-kaifa" role="tabpanel" aria-labelledby="pills-kaifa-tab">
+        <div class="col-md-3 flow-box">
+          <a href="#" data-toggle="tooltip" data-placement="right" title="需要掌握。。。">初级安全开发员</a>
+        </div>
+        <div class="col-md-2 flow-arrow">↓</div>
+        <div class="col-md-3 flow-box">
+          <a href="#" data-toggle="tooltip" data-placement="right" title="需要掌握。。。">中级安全开发工程师</a>
+        </div>
+        <div class="col-md-2 flow-arrow">↓</div>
+        <div class="col-md-3 flow-box">
+          <a href="#" data-toggle="tooltip" data-placement="right" title="需要掌握。。。">高级安全开发专家</a>
+        </div>
+        <button type="submit" class="btn btn-primary" id="kaifa">开始测试</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 展示提示框
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+      // 点击安服的按钮
+      // 传递值代表选择的职业
+      $("#anfu").click(function () {
+        $.ajax({
+          type: 'POST',
+          url: 'verify_tag.php',
+          dataType: 'json',
+          data: {
+            tag: 'anfu'
+          },
+          success: function (data) {
+            window.open("/timu_1.php");
+          }
+        });
+      });
+      // 点击研究的按钮
+      $("#yanjiu").click(function () {
+        $.ajax({
+          type: 'POST',
+          url: 'verify_tag.php',
+          dataType: 'json',
+          data: {
+            tag: 'yanjiu'
+          },
+          success: function (data) {
+            window.open("/timu_1.php");
+          }
+        });
+      });
+      // 点击开发的按钮
+      $("#kaifa").click(function () {
+        $.ajax({
+          type: 'POST',
+          url: 'verify_tag.php',
+          dataType: 'json',
+          data: {
+            tag: 'kaifa'
+          },
+          success: function (data) {
+            window.open("/timu_1.php");
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
