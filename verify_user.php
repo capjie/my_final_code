@@ -41,8 +41,8 @@
             if ($password_sha1 === $select_pwd) {
                 // 设置session验证
                 // 如果密码正确，那么将表单的信息输入到session里去，并且在main.php中认证
-                $_SESSION["mail"] = $mail_r;
-                $_SESSION["pwd"] = $password_r;
+                $_SESSION["mail"] = $mail_sha1; // 这里需要传入的是sha1后的mail值
+                // $_SESSION["pwd"] = $password_r;
                 $json_arr = array("INFO"=>"Success");
                 $json_obj = json_encode($json_arr);
                 echo $json_obj;

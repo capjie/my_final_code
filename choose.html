@@ -27,6 +27,7 @@
       line-height: 50px;
       border: 1px solid black;
     }
+
     .btn-primary {
       margin: 40px;
       text-align: center;
@@ -38,7 +39,7 @@
 <body>
   <!-- style="background-color: lightgray;" -->
   <div class="container">
-      <!-- 展示导航栏，滑动门 -->
+    <!-- 展示导航栏，滑动门 -->
     <div class="jumbotron jumbotron-fluid" style="background-color: lightgray;">
       <div class="container">
         <h1 class="display-3">欢迎来到虚拟职场!</h1>
@@ -115,43 +116,43 @@
       $('[data-toggle="tooltip"]').tooltip();
       // 点击安服的按钮
       // 传递值代表选择的职业
-      $("#anfu").click(function(){
+      $("#anfu").click(function () {
         $.ajax({
           type: 'POST',
           url: 'verify_tag.php',
           dataType: 'json',
-          data:{
+          data: {
             tag: 'anfu'
           },
-          success: function(data){
+          success: function (data) {
             window.open("/timu_1.php");
           }
         });
       });
       // 点击研究的按钮
-      $("#yanjiu").click(function(){
+      $("#yanjiu").click(function () {
         $.ajax({
           type: 'POST',
           url: 'verify_tag.php',
           dataType: 'json',
-          data:{
+          data: {
             tag: 'yanjiu'
           },
-          success: function(data){
+          success: function (data) {
             window.open("/timu_1.php");
           }
         });
       });
       // 点击开发的按钮
-      $("#kaifa").click(function(){
+      $("#kaifa").click(function () {
         $.ajax({
           type: 'POST',
           url: 'verify_tag.php',
           dataType: 'json',
-          data:{
+          data: {
             tag: 'kaifa'
           },
-          success: function(data){
+          success: function (data) {
             window.open("/timu_1.php");
           }
         });
