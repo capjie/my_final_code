@@ -27,16 +27,16 @@
     <script>
         let player = new Player({ 
             el: document.querySelector('#mse'),
-            url: '/mycode/test.mp4',
+            url: 'test.mp4',
             videoInit: true,
             fluid: true,
             playbackRate: [0.5, 0.75, 1, 1.5, 2],
             defaultPlaybackRate: 1,
             playNext: {
                 urlList: [
-                '/mycode/test.mp4',
-                '/mycode/test.mp4',
-                '/mycode/test.mp4'
+                'test.mp4',
+                'test.mp4',
+                'test.mp4'
                 ],
             }
         });

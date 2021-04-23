@@ -37,15 +37,18 @@
     <title>我的发布</title>
 </head>
 <body>
-    <div class="card" my-sm-4>
-        <div class="card-body">
-            <h1 class="display-3"><?php echo $title ?></h1>
+    <div class="container">
+        <div class="card" my-sm-4>
+            <div class="card-body">
+                <h1 class="display-3"><?php echo $title ?></h1>
+            </div>
+        </div>
+        <div class="card" my-sm-4>
+            <div class="card-body">
+                <h1 class="display-3"><?php echo $text ?></h1>
+            </div>
         </div>
     </div>
-    <div class="card" my-sm-4>
-        <div class="card-body">
-            <h1 class="display-3"><?php echo $text ?></h1>
-        </div>
-    </div>
+
 </body>
 </html>
