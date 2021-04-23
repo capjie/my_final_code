@@ -25,7 +25,7 @@
     </div>
  
     <script>
-        let player = new Player({
+        let player = new Player({ 
             el: document.querySelector('#mse'),
             url: '/mycode/test.mp4',
             videoInit: true,
