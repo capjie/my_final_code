@@ -64,6 +64,7 @@
             <th scope="col">发布的时间</th>
             <th scope="col">发布的标题</th>
             <th scope="col">发布的内容</th>
+            <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -72,25 +73,29 @@
             <td>2021-04-21</td>
             <td>学习</td>
             <td>安服</td>
+            <td><a href="#" class="btn btn-light">查看</a></td>
             </tr>
             <tr>
             <th scope="row">2</th>
             <td>2021-04-21</td>
             <td>学习2</td>
             <td>安服2</td>
+            <td><a href="#" class="btn btn-light">查看</a></td>
             </tr>
             <tr>
             <th scope="row">3</th>
             <td>2021-04-21</td>
             <td>学习3</td>
-            <td>安服2</td>
+            <td>安服3</td>
+            <td><a href="#" class="btn btn-light">查看</a></td>
             </tr>
+            <tr>
         </tbody>
         </table>
         </div>
         </div>
         <div class="tab-pane fade" id="pills-pinglun" role="tabpanel" aria-labelledby="pills-profile-tab">
-        <div class="col-12 col-sm-6">
+        <div class="col-12 col-sm-8">
         <table class="table table-hover">
         <thead class="thead-light">
             <tr>
@@ -98,6 +103,7 @@
             <th scope="col">评论的时间</th>
             <th scope="col">评论的标题</th>
             <th scope="col">所属的分类</th>
+            <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -106,18 +112,21 @@
             <td>2021-04-21</td>
             <td>学习</td>
             <td>安服</td>
+            <td><a href="#" class="btn btn-light">查看</a></td>
             </tr>
             <tr>
             <th scope="row">2</th>
             <td>2021-04-21</td>
             <td>学习2</td>
             <td>安服2</td>
+            <td><a href="#" class="btn btn-light">查看</a></td>
             </tr>
             <tr>
             <th scope="row">3</th>
             <td>2021-04-21</td>
             <td>学习3</td>
             <td>安服2</td>
+            <td><a href="#" class="btn btn-light">查看</a></td>
             </tr>
         </tbody>
         </table>
@@ -149,13 +158,25 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-1 col-form-label">昵称</label>
             <div class="col-sm-8">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="留空不做修改">
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-1 col-form-label">密码</label>
+            <label for="inputPassword3" class="col-sm-1 col-form-label">旧密码</label>
             <div class="col-sm-8">
-            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="留空不做修改" >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-1 col-form-label">新密码</label>
+            <div class="col-sm-8">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="留空不做修改">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-1 col-form-label">再次输入新密码</label>
+            <div class="col-sm-8">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="留空不做修改">
             </div>
         </div>
         
