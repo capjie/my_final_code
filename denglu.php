@@ -107,9 +107,9 @@
                     code: code
                 },
                 success: function(data){
-                    console.log(data.INFO);
+                  //   console.log(data.INFO);
                     if(data.INFO == "Success"){
-                     window.location.href = "/main.php";
+                       window.location.href = data.URL;
                     }else{
                     switch (data.INFO) {
                         case 'error':
@@ -119,6 +119,7 @@
                             alert("验证码错误");
                             break;
                         default:
+                            alert("QIGUAI");
                             break;
                     }
                     }

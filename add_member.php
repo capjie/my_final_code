@@ -38,7 +38,7 @@
     // $permission_3 = $_SESSION['permission_3'];
 
     //SHA1摘要
-    $username_sha1 = sha1($username_i);
+    // $username_i = sha1($username_i);
     $tel_sha1 = sha1($tel_i);
     $mail_sha1 = sha1($mail_i);
     $password_sha1 = sha1($password_i);//讲password摘要处理
@@ -53,7 +53,7 @@
         echo $json_obj;
     } else {
         //echo "succeess<br>";
-        $sql = sprintf("insert into member(name, school, mail, password, level) value('%s', '%s', '%s', '%s', %u)", $username_sha1, $tel_sha1, $mail_sha1, $password_sha1, $level);//更安全的写法，防止SQL注入
+        $sql = sprintf("insert into member(name, school, mail, password, level) value('%s', '%s', '%s', '%s', %u)", $username_i, $tel_sha1, $mail_sha1, $password_sha1, $level);//更安全的写法，防止SQL注入
         //执行sql查询语句
         //先判断是否是正确的验证码
         $sql2 = sprintf("select code from check_code where code = '%s'", $code);
@@ -80,12 +80,13 @@
                     $res = $con -> query($sql);//执行添加语句
                     // 转化成json格式将结果返回
                     if ($res) {
-                        $json_arr = array("INFO"=>"Success");
+                        $json_arr = array("INFO"=>"Success", "URL"=>"main.php");
                         $json_obj = json_encode($json_arr);
                         echo $json_obj;
                     } else {
-                        $info = "err: sql:".$sql."res: ".$res;
-                        $json_arr = array("INFO"=>$info);
+                        // $info = "err: sql:".$sql."res: ".$res;
+                        // $json_arr = array("INFO"=>$info);
+                        $json_arr = array("INFO"=>"error");
                         $json_obj = json_encode($json_arr);
                         echo $json_obj;
                     }

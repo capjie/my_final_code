@@ -229,7 +229,7 @@
                      console.log(data.INFO);
                      if(data.INFO == "Success"){
                         alert("注册成功！");
-                        window.location.href = "/main.php";
+                        window.location.href = data.URL;
                      }else{
                         console.log(data.INFO);
                      }

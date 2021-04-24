@@ -1,5 +1,22 @@
 <!-- 用户中心 demo-->
 <!-- 功能：能够更改密码。查看发表过的帖子，删除发表过的帖子 -->
+<?php 
+    session_start();
+    $user_mail = $_SESSION["session_mail"];
+    $servername = "localhost";
+    $username = "root";
+    $password = "root";
+    $dbname = "bs";
+    $con = mysqli_connect($servername,$username,$password,$dbname);//连接Mysql----服务器地址，用户名，密码，指定的数据库名
+    $sql_1 = sprintf("select count(mail) from member where mail='%s'",$user_mail);
+    $res_code = $con -> query($sql_1);
+    $count_array = $res_code -> fetch_all();//获取查询到的数据
+    $count_no = $count_array[0][0];
+    if($count_no == 0){
+        include('alert.html');
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -23,13 +40,20 @@
     <div class="card mb-3 border-light" style="max-width: 540px;">
     <div class="row">
         <div class="col-sm-4">
-        <img src="..." class="card-img" alt="...">
+        <img src="/icon/030-owl.svg" class="card-img" alt="">
         </div>
         <div class="col-sm-8">
         <div class="card-body">
-            <h5 class="card-title">姓名</h5>
-            <p class="card-text">XXX</p>
-            <p class="card-text"><small class="text-muted">已注册：xxx年</small></p>
+            <h5 class="card-title">
+                <?php  
+                    $sql_2 = sprintf("select name from member where mail='%s'",$user_mail);
+                    $res_name = $con -> query($sql_2);
+                    $data = $res_name->fetch_assoc();//将结果放入关联数组中
+                    echo $data["name"];
+                ?>
+            </h5>
+            <!-- 待定 -->
+            <p class="card-text"><small class="text-muted">这个人很懒什么也没有留下</small></p>
         </div>
         </div>
     </div>
@@ -63,33 +87,35 @@
             <th scope="col">#</th>
             <th scope="col">发布的时间</th>
             <th scope="col">发布的标题</th>
-            <th scope="col">发布的内容</th>
+            <th scope="col">所属的分类</th>
             <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>2021-04-21</td>
-            <td>学习</td>
-            <td>安服</td>
-            <td><a href="#" class="btn btn-light">查看</a></td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>2021-04-21</td>
-            <td>学习2</td>
-            <td>安服2</td>
-            <td><a href="#" class="btn btn-light">查看</a></td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>2021-04-21</td>
-            <td>学习3</td>
-            <td>安服3</td>
-            <td><a href="#" class="btn btn-light">查看</a></td>
-            </tr>
-            <tr>
+            <?php 
+                $sql_3 = sprintf("select * from publish where mail='%s'",$user_mail);
+                $res_all = $con -> query($sql_3);
+                $data = $res_all->fetch_all();  //获取查询到的数据
+                $i = 0;
+                while($i < count($data,0)){
+                    if($data[$i][3] == 1){
+                        $tag = '安全研究';
+                    }elseif ($data[$i][3] == 2) {
+                        $tag = '安全开发';
+                    }elseif ($data[$i][3] == 3) {
+                        $tag = '安全服务';
+                    }
+                    $time = date('Y-m-s h:i:s',$data[$i][2]);
+                    echo "<tr>";
+                    echo "<th scope='row'>$i</th>";
+                    echo "<td>".$time."</td>";
+                    echo "<td>".$data[$i][4]."</td>";
+                    echo "<td>".$tag."</td>";
+                    echo "<td><a href='#' class='btn btn-light'>查看</a></td>";
+                    echo "</tr>";
+                    $i = $i + 1;
+                }
+            ?>
         </tbody>
         </table>
         </div>
@@ -109,21 +135,21 @@
         <tbody>
             <tr>
             <th scope="row">1</th>
-            <td>2021-04-21</td>
+            <td>{2021-04-21}</td>
             <td>学习</td>
             <td>安服</td>
             <td><a href="#" class="btn btn-light">查看</a></td>
             </tr>
             <tr>
             <th scope="row">2</th>
-            <td>2021-04-21</td>
+            <td>{2021-04-21}</td>
             <td>学习2</td>
             <td>安服2</td>
             <td><a href="#" class="btn btn-light">查看</a></td>
             </tr>
             <tr>
             <th scope="row">3</th>
-            <td>2021-04-21</td>
+            <td>{2021-04-21}</td>
             <td>学习3</td>
             <td>安服2</td>
             <td><a href="#" class="btn btn-light">查看</a></td>
@@ -144,7 +170,7 @@
         </div>
         <div class="tab-pane fade" id="pills-renwu2" role="tabpanel" aria-labelledby="pills-contact-tab">
         <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
-        <div class="card-header">任务发布时间：2021-04-21</div>
+        <div class="card-header">任务发布时间：{2021-04-21}</div>
         <div class="card-body">
             <h5 class="card-title">任务的标题</h5>
             <p class="card-text">任务接收的人：XXX</p>
