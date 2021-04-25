@@ -7,8 +7,8 @@
     */
     // 开始认证
     session_start();
-    $user_mail = '10cba579f4d06ec2616d3727ec5ced9cf22ddf7a';
-    // $user_mail = $_SESSION["mail"];
+    // $user_mail = '10cba579f4d06ec2616d3727ec5ced9cf22ddf7a';
+    $user_mail = $_SESSION["session_mail"];
     $servername = "localhost";
     $username = "root";
     $password = "root";

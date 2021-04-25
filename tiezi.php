@@ -34,18 +34,21 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css"rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
     
-    <title>我的发布</title>
+    <title>帖子</title>
 </head>
 <body>
-    <div class="card" my-sm-4>
-        <div class="card-body">
-            <h1 class="display-3"><?php echo $title ?></h1>
+    <div class="container">
+        <div class="card" my-sm-4>
+            <div class="card-body">
+                <h1 class="display-3"><?php echo $title ?></h1>
+            </div>
+        </div>
+        <div class="card" my-sm-4>
+            <div class="card-body">
+                <h1 class="display-3"><?php echo $text ?></h1>
+            </div>
         </div>
     </div>
-    <div class="card" my-sm-4>
-        <div class="card-body">
-            <h1 class="display-3"><?php echo $text ?></h1>
-        </div>
-    </div>
+
 </body>
 </html>
