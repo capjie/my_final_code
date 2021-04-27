@@ -57,6 +57,8 @@
         if($err_count <= 2){
             $check_code = create_randcode(6);
             $sql_save_code = sprintf("insert into check_code(code) values('%s')", $check_code);
+            // 创建进入注册页面的条件
+            $_SESSION['check_code'] = $check_code;
             $res_save_code = $con->query($sql_save_code);
             $json_arr = array("invite_code"=>$check_code,"err_total"=>$err_count, "err_flag_str"=>$err_flag_str, "status"=>"OK", "Addr"=>"www.baidu.com");
             $json_obj = json_encode($json_arr);
@@ -67,7 +69,4 @@
             echo $json_obj;
         }
     }
-    // $json_arr = array("answer"=>$answer,"flag"=>$flag);
-    // $json_obj = json_encode($json_arr);
-    // return response() -> $json_obj;
 ?>

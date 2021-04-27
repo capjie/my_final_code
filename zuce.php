@@ -7,20 +7,25 @@
 
     
     session_start();//启用session
-    $_SESSION['add_member'] = "add_member";
-    /*
-    if(isset($_SESSION['name']))
-    {
-        // echo "<script>alert(\"欢迎管理员\")</script>";
-        // php.ini 设置了1200秒后销毁session
-        // unset($_SESSION['name']);
-    }
-    else
-    {
-        echo "<script>alert(\"您没有权限访问此页面\")</script>";
-        // header("location:test.php"."?name=$name");//成功后返回index.php页面并保存name值
-        echo "<script>"."window.location=\"http://127.0.0.1:80\""."</script>";
-    }*/
+
+   // 判断是否有进入zece.php的资格
+   $check_code = $_SESSION['check_code'];
+   $servername = "localhost";
+   $username = "root";
+   $password = "root";
+   $dbname = "question";
+   $con = mysqli_connect($servername,$username,$password,$dbname);//连接Mysql----服务器地址，用户名，密码，指定的数据库名
+   $sql_1 = sprintf("select count(code) from check_code where code='%s'",$check_code);
+   $res_code = $con -> query($sql_1);
+   $count_array = $res_code -> fetch_all();//获取查询到的数据
+   $count_no = $count_array[0][0];
+   if($count_no != 1){
+      include('alert.html');
+      exit();
+   }
+   //  创建进入add_member的条件
+   $_SESSION['add_member'] = "add_member";
+
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">

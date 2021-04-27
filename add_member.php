@@ -3,7 +3,6 @@
     **1、将员工数据写入数据库
     */
 
-    /*
     session_start();//启用session
 
     if($_SESSION['add_member'] === "add_member")
@@ -15,11 +14,10 @@
     }
     else
     {
-        echo "<script>alert(\"您没有权限访问此页面\")</script>";
-        // header("location:test.php"."?name=$name");//成功后返回index.php页面并保存name值
-        echo "<script>"."window.location=\"http://127.0.0.1:80\""."</script>";
+        include('alert.html');
+        exit();
     }
-    */
+
     $servername = "localhost";
     $username = "root";
     $password = "root";
