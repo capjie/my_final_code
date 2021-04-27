@@ -40,6 +40,31 @@
           <div class="invalid-feedback">必须选择任务对应的tag</div>
         </div>
       </form>
+      <!-- 上传文件 -->
+
+      <div class="input-group mb-3 col-md-6">
+        <input class="form-control" type="text" id="path_mp4" onclick="$('#file').click()" readonly>
+        <span id="upload_vedio" class="btn btn-info input-group-addon" onclick="$('#file').click()">
+          <i class="glyphicon glyphicon-cloud-upload"></i>
+          视频文件上传
+        </span>
+        <!-- <div class="invalid-feedback">仅支持MP4格式的视频文件</div> -->
+      </div>
+      <div class="input-group mb-3 col-md-6">
+        <input class="form-control" type="text" id="path_pdf" onclick="$('#file_pdf').click()" readonly>
+        <span id="upload_pdf" class="btn btn-info input-group-addon" onclick="$('#file_pdf').click()">
+          <i class="glyphicon glyphicon-cloud-upload"></i>
+           PDF文件上传
+        </span>
+      </div>
+      <div class="input-group mb-3 col-md-6">
+        <input class="form-control" type="text" id="path_txt" onclick="$('#file_').click()" readonly>
+        <span id="upload_text" class="btn btn-info input-group-addon" onclick="$('#file').click()">
+          <i class="glyphicon glyphicon-cloud-upload"></i>
+          文本文件上传
+        </span>
+      </div>
+      <input type="file" class="form-control" id="file" style="display:none"/>
       <!-- 文章内容 -->
       <!-- 富文本输入框 -->
       <!-- 此处对上传的图片和文字并没有验证 -->
@@ -48,6 +73,7 @@
           <br>
           <input id="publish" class="btn btn-primary" type="button" value="发布">
         </form>
+
       </div>
     <script>
       var content = "";
@@ -66,8 +92,13 @@
         }
       });
       $(function(){
+        $("#file").change(function () {
+          $("#path_mp4").val($("#file")[0].files[0].name);
+          console.log($("#path_mp4").val($("#file")[0].files[0].name));
+        });
+        // 监听按钮
         $('#publish').click(function(){
-          // 处理图片，我们把所有的代码都存入到txt文件中，然后再数据库中存储索引！！！
+          // 处理图片，我们把所有的代码都存入到txt文件中，然后再在数据库中存储索引！！！
           var code = $("#summernote").summernote("code");
           var tag = $('#tag')[0].value;
           var title = $('#title_publish').val();
