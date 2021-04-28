@@ -27,7 +27,7 @@
     }
     // 封装函数（对多种文件上传都有效）
     function uploadFiles($fileinfo, $arrExt=array('txt', 'mp4', 'pdf'), $flag = true, $path = './video'){
-        $arrmime = array('mp4'=>'video/mpeg4', 'pdf'=>'application/pdf', 'txt'=>'text/plain');
+        $arrmime = array('mp4'=>'video/mp4', 'pdf'=>'application/pdf', 'txt'=>'text/plain');
         if($fileinfo['error'] == UPLOAD_ERR_OK){
             // 检测文件类型
             $ext = pathinfo($fileinfo['name'], PATHINFO_EXTENSION);
@@ -43,9 +43,10 @@
                 // 判断上传的文件是否是对应的真实的文件
                 $finfo = finfo_open(FILEINFO_MIME_TYPE);//返回 mime 类型。
                 $mimetype = finfo_file($finfo, $fileinfo['tmp_name']);
+                // $mimetype = explode(";",$mimetype)[0];
                 finfo_close($finfo);
-                if($mimetype != $arrmime[$ext]){
-                    $echo['mes'] = $fileinfo['name'].'上传文件修篡改！';
+                if($mimetype != $arrmime[$ext] && $mimetype !='inode/x-empty'){
+                    $echo['mes'] = $fileinfo['name'].'上传文件被篡改！';
                 }
             }
             if(!empty($echo)){

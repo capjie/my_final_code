@@ -8,6 +8,10 @@
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
     
     <title>我的发布</title>
 </head>
@@ -72,9 +76,10 @@
                 var fd = new FormData();
                 for (var i = 0; i < files_upload.length; i++) {
                     fd.append(i, files_upload[i]);
+                    console.log(files_upload[i]);
                 }
                 console.log(fd.get(0));
-                console.log(typeof(files_upload));
+                // console.log(typeof(files_upload));
                 // 旧的上传文件方法只能上传一个文件
                 // fd.append("upfile_name", $("#file_upload")[0].files[0].name);
                 // fd.append("upfile", $("#file_upload")[0].files[0]);
@@ -99,15 +104,26 @@
                     type: 'POST',
                     url: '/test/use_upload_test.php',
                     data: fd,
-                    datatype: 'json',
                     cache: false,//上传文件无需缓存
                     processData: false,//用于对data参数进行序列化处理 这里必须false
                     contentType: false, //必须
                     
                     success: function(res){
                         console.log(res);
-                        if(res.indexOf('成功') != -1){
-                            alert('success!');
+                        if(res.indexOf('篡改') != -1){
+                            alert('停止你的攻击行为!');
+                            $(".form-group input").val("");
+                            window.location.reload();
+                            // var clear_path_3 = document.getElementById('file_upload');
+                            // clear_path_3.outerHTML = clear_path_3.outerHTML; 
+                        }else if(res.indexOf('成功') != -1){
+                            alert('上传成功');
+                            $(".form-group input").val("");
+                            // var clear_path_3 = document.getElementById('file_upload');
+                            // clear_path_3.outerHTML = clear_path_3.outerHTML; 
+                            window.location.reload();
+                        }else{
+                            alert('上传失败')
                         }
                     }
                 });
