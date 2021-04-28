@@ -145,25 +145,6 @@
                 echo '</div>';
                 $last_num = $last_num - 1;
             }
-        // }else{
-        //     while($last_num){
-        //         echo '<div class="card">';
-        //         echo '<div class="card-header">';
-        //         echo '<img src="/icon/best.svg" width="40" height="40" class="d-inline-block align-top" alt="">';
-        //         echo '<img src="/icon/top.svg" width="40" height="40" class="d-inline-block align-top" alt="">';
-        //         echo '<img src="/icon/new.svg" width="35" height="35" class="d-inline-block align-top" alt="">';
-        //         echo '<div class="like" style="float:right">';      
-        //         echo ' <img src="/icon/like.svg" style="float:right" width="40" height="40" class="d-inline-block align-top" alt="">';       
-        //         echo '</div>';        
-        //         echo '</div>';    
-        //         echo '<div class="card-body">';
-        //         echo '<a class="card-title" href="#"><span>'.'</span></a>';
-        //         echo '<p class="card-text">'.'...</p>';
-        //         echo '<a href="#" class="btn btn-primary">查看</a>';
-        //         echo '</div>';
-        //         echo '</div>';
-        //         $last_num = $last_num - 1;
-        //     }
         }
         
     ?>
@@ -220,7 +201,6 @@
                     url: 'verify_page.php',
                     datatype: 'json',
                     data:{
-                        title: title,
                         no :no
                     }
                 });
@@ -228,14 +208,14 @@
             }
             // var arrayOfIds = $.map($(".page-link"), function(n, i){
             // return n.id;
-            console.log(v_id);
-            console.log(v_class);
+            // console.log(v_id);
+            // console.log(v_class);
             // 获取到点击的页面是那一页
             if(istitle == -1 && v_id>=0){
                 var v_id = v_id - 1;
                 var v_class = $(e.target).attr('class');
-                console.log(v_id);
-                console.log(v_class);
+                // console.log(v_id);
+                // console.log(v_class);
                 $.ajax({
                     type: 'POST',
                     url: 'verify_page.php',
@@ -244,7 +224,7 @@
                         page: v_id
                     }
                 });
-                console.log("555");
+                // console.log("555");/
                 window.location.href = "knowledge.php";
             }
         });

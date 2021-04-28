@@ -111,7 +111,11 @@
                     echo "<td>".$time."</td>";
                     echo "<td>".$data[$i][4]."</td>";
                     echo "<td>".$tag."</td>";
+<<<<<<< HEAD
                     echo "<td><a class='btn btn-light' id='num_".$data[$i][5]."'>查看</a></td>";
+=======
+                    echo "<td><a href='#' class='btn btn-light' id='num_".$data[$i][5]."' onclick='getid(this.id)'>查看</a></td>";
+>>>>>>> 13b1de44986372496d2902b4a64dcf14469926aa
                     echo "</tr>";
                     $i = $i + 1;
                 }
@@ -182,25 +186,25 @@
         <div class="col-12 col-md-8">
         <form>
         <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-1 col-form-label">昵称</label>
+            <label for="inputEmail3" class="col-sm-4 col-form-label">昵称</label>
             <div class="col-sm-8">
             <input type="email" class="form-control" id="inputEmail3" placeholder="留空不做修改">
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-1 col-form-label">旧密码</label>
+            <label for="inputPassword3" class="col-sm-4 col-form-label">旧密码</label>
             <div class="col-sm-8">
             <input type="password" class="form-control" id="inputPassword3" placeholder="留空不做修改" >
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-1 col-form-label">新密码</label>
+            <label for="inputPassword3" class="col-sm-4 col-form-label">新密码</label>
             <div class="col-sm-8">
             <input type="password" class="form-control" id="inputPassword3" placeholder="留空不做修改">
             </div>
         </div>
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-1 col-form-label">再次输入新密码</label>
+            <label for="inputPassword3" class="col-sm-4 col-form-label">再次输入新密码</label>
             <div class="col-sm-8">
             <input type="password" class="form-control" id="inputPassword3" placeholder="留空不做修改">
             </div>
@@ -217,12 +221,24 @@
     </div>
     </div>
     <script>
+<<<<<<< HEAD
         $(function(){
             $(".btn").click(function(){
                 // var id_no = $("#runoob").attr("href");
                 // console.log(id_no);
             });
         });
+=======
+        function getid(id){
+            var no = id.split("_")[1];
+            console.log(id);
+                $.post("/user_chakan.php",{"data":no},function(data){
+                // alert("数据: " + data + "\n");
+                // console.log(data);
+                window.open(data);
+            });  
+        }
+>>>>>>> 13b1de44986372496d2902b4a64dcf14469926aa
     </script>
 </body>
 </html>
