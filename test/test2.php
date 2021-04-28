@@ -97,7 +97,11 @@
 
                 $.ajax({
                     type: 'POST',
+<<<<<<< HEAD
                     url: '/test/use_upload_test.php',
+=======
+                    url: '/use_upload_test.php',
+>>>>>>> 4d7402fe0d36e682a9ecf6f7da16fccb57306a5b
                     data: fd,
                     datatype: 'json',
                     cache: false,//上传文件无需缓存
