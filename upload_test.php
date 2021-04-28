@@ -59,12 +59,12 @@
             // 创建唯一的文件名防止产生覆盖
             $uniname = md5(uniqid(microtime(true), true));
             // 确定文件的具体位置和名字类型
-            $destination = sprintf("$s./$s.$s", $path, $uniname, $ext);
+            $destination = sprintf("%s/%s.%s", $path, $uniname, $ext);
             if(@move_uploaded_file($fileinfo['tmp_name'], $destination)){
-                $echo['mes'] = $fileinfo['name'].'上传文件成功';
+                $echo['mes'] = '文件：'.$fileinfo['name'].'上传文件成功';
                 return $echo;
             }else{
-                $echo['mes'] = $fileinfo['name'].'上传文件失败';
+                $echo['mes'] = '文件：'.$fileinfo['name'].'上传文件失败';
             }
         }else{
             switch ($fileinfo['error']){

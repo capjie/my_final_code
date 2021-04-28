@@ -111,7 +111,7 @@
                     echo "<td>".$time."</td>";
                     echo "<td>".$data[$i][4]."</td>";
                     echo "<td>".$tag."</td>";
-                    echo "<td><a href='#' class='btn btn-light'>查看</a></td>";
+                    echo "<td><a class='btn btn-light' id='num_".$data[$i][5]."'>查看</a></td>";
                     echo "</tr>";
                     $i = $i + 1;
                 }
@@ -216,5 +216,13 @@
         </div>
     </div>
     </div>
+    <script>
+        $(function(){
+            $(".btn").click(function(){
+                // var id_no = $("#runoob").attr("href");
+                // console.log(id_no);
+            });
+        });
+    </script>
 </body>
 </html>
