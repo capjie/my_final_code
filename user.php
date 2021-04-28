@@ -111,11 +111,7 @@
                     echo "<td>".$time."</td>";
                     echo "<td>".$data[$i][4]."</td>";
                     echo "<td>".$tag."</td>";
-<<<<<<< HEAD
-                    echo "<td><a class='btn btn-light' id='num_".$data[$i][5]."'>查看</a></td>";
-=======
                     echo "<td><a href='#' class='btn btn-light' id='num_".$data[$i][5]."' onclick='getid(this.id)'>查看</a></td>";
->>>>>>> 13b1de44986372496d2902b4a64dcf14469926aa
                     echo "</tr>";
                     $i = $i + 1;
                 }
@@ -221,14 +217,6 @@
     </div>
     </div>
     <script>
-<<<<<<< HEAD
-        $(function(){
-            $(".btn").click(function(){
-                // var id_no = $("#runoob").attr("href");
-                // console.log(id_no);
-            });
-        });
-=======
         function getid(id){
             var no = id.split("_")[1];
             console.log(id);
@@ -238,7 +226,6 @@
                 window.open(data);
             });  
         }
->>>>>>> 13b1de44986372496d2902b4a64dcf14469926aa
     </script>
 </body>
 </html>
