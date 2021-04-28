@@ -6,16 +6,20 @@
     // 评论模块div
     session_start();
     $no = $_SESSION["no"];
-    $title = $_SESSION["title"];
+
     $servername = "localhost";
     $username = "root";
     $password = "root";
     $dbname = "bs";
     $con = mysqli_connect($servername,$username,$password,$dbname);//连接Mysql----服务器地址，用户名，密码，指定的数据库名
     $sql2 = sprintf("select publish_path from publish where no=%u",$no);
+    $sql3 = sprintf("select publish_title from publish where no=%u",$no);
     $res_code = $con -> query($sql2);
+    $res_code2 = $con -> query($sql3);
     $path_array = $res_code -> fetch_all();//获取查询到的数据
+    $title_array = $res_code2 -> fetch_all();//获取查询到的数据
     $path = $path_array[0][0];
+    $title = $title_array[0][0];
 
     $myfile = fopen($path , "r");
     $text = fread($myfile,filesize($path));
